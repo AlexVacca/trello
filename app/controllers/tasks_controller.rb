@@ -5,6 +5,7 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+   @tasks = Task.order ("endd desc")
   end
 
   # GET /tasks/1
@@ -20,6 +21,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
+  @users = User.all.map {|user| [user.name,user.id]}
   end
 
   # POST /tasks
