@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+#  before_action :get_users, only: [:show, :edit, :update, :destroy]
 
   # GET /tasks
   # GET /tasks.json
@@ -7,6 +8,11 @@ class TasksController < ApplicationController
     @tasks = Task.all
    @tasks = Task.order ("endd desc")
   end
+
+#def get_users
+
+#@users=User.all.map {|user| [user.name,user.id]}
+#end
 
   # GET /tasks/1
   # GET /tasks/1.json
@@ -21,7 +27,7 @@ class TasksController < ApplicationController
 
   # GET /tasks/1/edit
   def edit
-  @users = User.all.map {|user| [user.name,user.id]}
+   @users = User.all.map {|user| [user.name,user.id]}
   end
 
   # POST /tasks
